@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+  <%= link_to "Blog", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegacion" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navegacion">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%= 'active' if current_page?(root_path)%>">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?(articles_path) %>">
+        <%= link_to "Entrys", articles_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if current_page?(about_path) %>">
+        <%= link_to "About", about_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+</nav>
