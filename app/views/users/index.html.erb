@@ -1,2 +1,29 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<div class="container-fluid">
+  <% @users.each do |user| %>
+  <h3>User id: <%= user.id %></h3>
+  <p>
+    Email: <%= user.email %>
+  </p>
+  <p>
+    First name: <%= user.first_name %>
+  </p>
+  <p>
+    Last name: <%= user.last_name %>
+  </p>
+  <p>
+    Username: <%= user.username %>
+  </p>
+  <p>
+    Phone: <%= user.phone %>
+  </p>
+  <p>
+    Admin: <%= user.admin %>
+  </p>
+  <p>
+    Content creator: <%= user.creator %>
+  </p>
+  <% end %>
+</div>
