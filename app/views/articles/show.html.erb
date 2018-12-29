@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
@@ -22,6 +20,19 @@
 
 <div class="container-fluid ql-editor">
   <%= @article.content.html_safe %>
+</div>
+
+<div class="container-fluid">
+  <h3>Comments</h3>
+  <% @article.comments.each do |comment| %>
+    <p><%= comment.body %></p>
+    <p><%= comment.user.username %></p>
+  <% end %>
+</div>
+
+<div class="container-fluid">
+  <h3>Cagtegory</h3>
+  <p><%= @article.category.name %></p>
 </div>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |

@@ -27,15 +27,14 @@
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.hidden_field :content, required: true %>
-    <div id="editor-container" hidden="true"></div>
-    <div id="editor"></div>
+    <%= form.number_field :user_id, 'value': current_user.id, type: 'hidden' %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.label :content %>
+    <%= form.hidden_field :content, id: "article_content", required: true %>
+    <div id="editor-container" hidden="true"></div>
+    <div id="editor"></div>
   </div>
 
   <div class="actions">
