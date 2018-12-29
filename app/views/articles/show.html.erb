@@ -22,6 +22,10 @@
   <%= @article.content.html_safe %>
 </div>
 
+<div class="continer-fluid">
+  <%= image_tag @article.picture.url, class: "img-fluid img-article" if @article.picture? %>
+</div>
+
 <div class="container-fluid">
   <h3>Comments</h3>
   <% @article.comments.each do |comment| %>
