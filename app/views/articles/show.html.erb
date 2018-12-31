@@ -1,43 +1,41 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Subtitle:</strong>
-  <%= @article.subtitle %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @article.category_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @article.user_id %>
-</p>
-
-<div class="container-fluid ql-editor">
-  <%= @article.content.html_safe %>
-</div>
-
-<div class="continer-fluid">
-  <%= image_tag @article.picture.url, class: "img-fluid img-article" if @article.picture? %>
-</div>
-
 <div class="container-fluid">
-  <h3>Comments</h3>
-  <% @article.comments.each do |comment| %>
-    <p><%= comment.body %></p>
-    <p><%= comment.user.username %></p>
-  <% end %>
-</div>
+  <div class="container-fluid d-flex justify-content-center">
+    <%= image_tag @article.picture.url, class: "img-fluid" if @article.picture? %>
+  </div>
+  <article>
+    <header>
+      <div class="container-fluid text-justify my-3">
+        <h5><%= @article.category.name %></h5>
+        <h1><%= @article.title %></h1><br>
+        <h2><small class="text-secondary"><%= @article.subtitle if @article.subtitle? %></small></h2>
+      </div>
+    </header>
+    <div class="container-fluid ql-style">
+      <%= @article.content.html_safe %>
+    </div>
+  </article>
 
-<div class="container-fluid">
-  <h3>Cagtegory</h3>
-  <p><%= @article.category.name %></p>
-</div>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+  <div class="container-fluid pt-5">
+    <h3>Comments</h3>
+    <% @article.comments.each do |comment| %>
+      <div class="container-fluid my-5">
+        <div class="row">
+          <div class="col-md-2">
+            <%= comment.user.username %>
+          </div>
+          <div class="col-md-10">
+            <%= comment.body %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="container-fluid pt-3 pb-5">
+    <%= render template:'comments/new' %>
+  </div>
+
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+  <%= link_to 'Back', articles_path %>
+</div>

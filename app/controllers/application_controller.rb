@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_categories_index
 
   protected
 
@@ -14,6 +15,10 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "You must be logged in to access this section"
       redirect_to new_user_session_path # halts request cycle
     end
+  end
+
+  def set_categories_index
+    @categories = Category.all
   end
 
 end

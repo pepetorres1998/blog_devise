@@ -1,5 +1,9 @@
-<h1>New Comment</h1>
-
-<%= render 'form', comment: @comment %>
-
-<%= link_to 'Back', comments_path %>
+<h4>Add a comment</h4>
+<% if user_signed_in? %>
+  <!-- true -->
+  <%= render 'form_comment', comment: @comment %>
+<% else %>
+  <p>You have to sign in first!</p>
+  <%= link_to "Sign In", new_user_session_path, class:'btn btn-primary' %>
+  <%= link_to "Sign Up", new_user_registration_path, class:'btn btn-primary' %>
+<% end %>
