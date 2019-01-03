@@ -3,27 +3,34 @@
 
 <div class="container-fluid">
   <% @users.each do |user| %>
-  <h3>User id: <%= user.id %></h3>
-  <p>
-    Email: <%= user.email %>
-  </p>
-  <p>
-    First name: <%= user.first_name %>
-  </p>
-  <p>
-    Last name: <%= user.last_name %>
-  </p>
-  <p>
-    Username: <%= user.username %>
-  </p>
-  <p>
-    Phone: <%= user.phone %>
-  </p>
-  <p>
-    Admin: <%= user.admin %>
-  </p>
-  <p>
-    Content creator: <%= user.creator %>
-  </p>
+  <div class="row">
+    <div class="col-md-9">
+      <h3>User id: <%= user.id %></h3>
+      <p>
+        Email: <%= user.email %>
+      </p>
+      <p>
+        First name: <%= user.first_name %>
+      </p>
+      <p>
+        Last name: <%= user.last_name %>
+      </p>
+      <p>
+        Username: <%= user.username %>
+      </p>
+      <p>
+        Phone: <%= user.phone %>
+      </p>
+      <p>
+        Admin: <%= user.admin %>
+      </p>
+      <p>
+        Content creator: <%= user.creator %>
+      </p>
+    </div>
+    <div class="col-md-3">
+      <%= link_to raw('<i class="fas fa-trash-alt"></i>'), user_registration_path,  confirm: "Are you sure?", method: :delete, class: "btn btn-primary" %>
+    </div>
+  </div>
   <% end %>
 </div>

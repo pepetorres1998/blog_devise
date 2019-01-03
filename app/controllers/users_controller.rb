@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   #require 'pry'
   #binding.pry
   before_action :set_user, only: :show
+  before_action :require_admin, only: [:index, :show]
 
   def show
   end

@@ -16,10 +16,16 @@
   <body>
     <%= render 'layouts/nav_bar' %>
     <%- if flash[:notice] %>
-      <p class="notice"><%= notice %></p>
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <%= notice %>
+    </div>
     <%- end %>
     <%- if flash[:alert] %>
-      <p class="alert"><%= alert %></p>
+    <div class="alert alert-dismissible alert-success">
+      <button type="button" class="close" data-dismiss="alert">x</button>
+      <%= alert %>
+    </div>
     <%- end %>
     <div class="container-fluid">
       <div class="row">
