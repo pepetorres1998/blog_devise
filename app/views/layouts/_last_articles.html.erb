@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <h3 class="text-center"><strong><i>Last entrys</i></strong></h3>
+  <% @articles = Article.order(created_at: :desc).last(5) %>
+  <% @articles.each do |article| %>
+    <hr class="hr-big"/>
+    <%= link_to article_path(article.id), class: 'linkto_articles' do %>
+      <div class="container-fluid text-justify">
+        <div class="row">
+          <div class="justify-content-center">
+            <%= image_tag article.picture.url, class: "img-fluid" if article.picture? %>
+            <p><%= article.title %></p>
+            <p class="text-right py-2"><%= article.category.name %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <hr class="hr-big"/>
+</div>

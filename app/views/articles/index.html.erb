@@ -6,7 +6,7 @@
   <% @articles.each do |article| %>
     <hr class="hr-big"/>
     <%= link_to article_path(article.id), class: 'linkto_articles' do %>
-      <div class="container-fluid my-3 py-3">
+      <div class="container-fluid my-3 py-3 text-justify">
         <div class="row">
           <div class="col-md-4 d-flex flex-column justify-content-center">
             <%= image_tag article.picture.url, class: "img-fluid" if article.picture? %>
@@ -20,4 +20,5 @@
       </div>
     <% end %>
   <% end %>
+  <hr class="hr-big"/>
 </div>

@@ -1,6 +1,9 @@
 <div class="container-fluid">
   <h2>Categories</h2>
   <% @categories.each do |category| %>
-    <%= link_to category.name, category_path(category.id) %>
+    <%= link_to category.name, category_path(category.id) %><br/>
+  <% end %>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to "Add category", new_category_path, class: 'btn btn-primary my-3' %>
   <% end %>
 </div>
