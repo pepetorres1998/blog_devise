@@ -27,7 +27,7 @@
       </p>
     </div>
     <div class="col-md-3">
-      <%= link_to raw('<i class="fas fa-trash-alt"></i>'), user_path(user.id),  confirm: "Are you sure?", method: :delete, class: "btn btn-primary" %>
+      <%= link_to raw('<i class="fas fa-trash-alt"></i>'), user_path(user.id), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %>
       <%= link_to raw('<i class="fas fa-user"></i>'), user_path(user.id), class: "btn btn-primary" %>
     </div>
   </div>

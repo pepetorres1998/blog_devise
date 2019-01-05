@@ -13,9 +13,9 @@ class UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      redirect_to root_path, notice: "User deleted"
+      redirect_to users_path, notice: "User deleted"
     else
-      redirect_to root_path, flash: "User could not be deleted"
+      redirect_to users_path, flash: "User could not be deleted"
     end
   end
 

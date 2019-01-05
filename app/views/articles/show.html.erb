@@ -5,12 +5,14 @@
   <article>
     <header>
       <div class="container-fluid text-justify my-3">
+        <%= link_to category_path(@article.category_id) do %>
         <h5><%= @article.category.name %></h5>
+        <% end %>
         <h1><%= @article.title %></h1><br>
         <h2><small class="text-secondary"><%= @article.subtitle if @article.subtitle? %></small></h2>
       </div>
     </header>
-    <div class="container-fluid ql-style">
+    <div class="container-fluid ql-style pt-4">
       <%= @article.content.html_safe %>
     </div>
   </article>
@@ -22,10 +24,13 @@
       <div class="container-fluid my-5">
         <div class="row">
           <div class="col-md-2">
-            <%= comment.user.username %>
+            <%= link_to comment.user.username, user_path(comment.user.id) %>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-10 d-flex justify-content-between">
             <%= comment.body %>
+            <% if user_signed_in? && current_user.admin? %>
+              <%= link_to raw('<i class="fas fa-trash-alt"></i>'), comment_path(comment.id),  confirm: "Are you sure?", method: :delete, class: "btn btn-primary" %>
+            <% end %>
           </div>
         </div>
       </div>

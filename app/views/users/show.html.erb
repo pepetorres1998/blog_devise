@@ -22,7 +22,7 @@
     Content creator: <%= @user.creator %>
   </p>
   <% if user_signed_in? && current_user.admin? %>
-    <%= link_to raw('<i class="fas fa-trash-alt"></i>'), user_path(@user.id),  confirm: "Are you sure?", method: :delete, class: "btn btn-primary" %>
+    <%= link_to raw('<i class="fas fa-trash-alt"></i>'), user_path(@user.id), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %>
   <% end %>
 </div>
 <div class="container-fluid my-3">
