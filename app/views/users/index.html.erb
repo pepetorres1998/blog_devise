@@ -1,7 +1,5 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-
 <div class="container-fluid">
+  <h1 class="text-center"><strong><i>Users</i></strong></h1>
   <% @users.each do |user| %>
   <div class="row">
     <div class="col-md-9">
@@ -29,7 +27,8 @@
       </p>
     </div>
     <div class="col-md-3">
-      <%= link_to raw('<i class="fas fa-trash-alt"></i>'), user_registration_path,  confirm: "Are you sure?", method: :delete, class: "btn btn-primary" %>
+      <%= link_to raw('<i class="fas fa-trash-alt"></i>'), user_path(user.id),  confirm: "Are you sure?", method: :delete, class: "btn btn-primary" %>
+      <%= link_to raw('<i class="fas fa-user"></i>'), user_path(user.id), class: "btn btn-primary" %>
     </div>
   </div>
   <% end %>

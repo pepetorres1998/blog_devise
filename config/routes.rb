@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :comments
   devise_for :users
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index, :destroy]
   root 'static_pages#home'
   get '/about', to: 'static_pages#about'
   resources :categories

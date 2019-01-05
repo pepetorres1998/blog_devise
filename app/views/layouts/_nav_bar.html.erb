@@ -17,6 +17,9 @@
     </ul>
     <%- if user_signed_in? %>
       <div class="form-inline my-2 my-lg-0">
+        <% if current_user.admin? %>
+        <%= button_to 'Users', users_path, method: :get, class: 'btn btn-info' %>
+        <% end %>
         <%= button_to 'Mi Cuenta', user_path(current_user.id), method: :get, class: 'btn btn-info' %>
         <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-info' %>
       </div>

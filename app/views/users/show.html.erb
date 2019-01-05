@@ -1,28 +1,51 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
 <div class="container-fluid">
-  <div class="container-fluid">
-    <p>
-      Email: <%= @user.email %>
-    </p>
-    <p>
-      First name: <%= @user.first_name %>
-    </p>
-    <p>
-      Last name: <%= @user.last_name %>
-    </p>
-    <p>
-      Username: <%= @user.username %>
-    </p>
-    <p>
-      Phone: <%= @user.phone %>
-    </p>
-    <p>
-      Admin: <%= @user.admin %>
-    </p>
-    <p>
-      Content creator: <%= @user.creator %>
-    </p>
-  </div>
+  <h1 class="text-center"><strong><i><%= @user.username %></i></strong></h1>
+  <p>
+    Email: <%= @user.email %>
+  </p>
+  <p>
+    First name: <%= @user.first_name %>
+  </p>
+  <p>
+    Last name: <%= @user.last_name %>
+  </p>
+  <p>
+    Username: <%= @user.username %>
+  </p>
+  <p>
+    Phone: <%= @user.phone %>
+  </p>
+  <p>
+    Admin: <%= @user.admin %>
+  </p>
+  <p>
+    Content creator: <%= @user.creator %>
+  </p>
+  <% if user_signed_in? && current_user.admin? %>
+    <%= link_to raw('<i class="fas fa-trash-alt"></i>'), user_path(@user.id),  confirm: "Are you sure?", method: :delete, class: "btn btn-primary" %>
+  <% end %>
 </div>
+<div class="container-fluid my-3">
+  <h2>Comments</h2>
+  <% @user.comments.each do |comment| %>
+    <div class="row my-4">
+      <div class="col-9 d-flex flex-column justify-content-center">
+        <%= comment.body %>
+      </div>
+      <div class="col-3 d-flex flex-column justify-content-center">
+        <div class="">
+          <%= link_to "Go", article_path(comment.article_id) %>
+          <% if user_signed_in? && current_user.admin? %>
+             | <%= link_to "Eliminar", comment_path(comment.id), method: :delete %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<% if user_signed_in? && current_user.admin? %>
+<div class="container-fluid my-3">
+  <%= link_to "All comments", comments_path, class: 'btn btn-primary' %>
+  <%= link_to "All users", users_path, class: 'btn btn-primary' %>
+</div>
+<% end %>
