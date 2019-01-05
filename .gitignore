@@ -32,3 +32,6 @@
 
 #ignore public photos
 /public/uploads/
+
+#ignore mailer data
+/config/initializers/app_env_vars.rb
