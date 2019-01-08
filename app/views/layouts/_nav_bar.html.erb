@@ -1,32 +1,32 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top">
-  <%= button_to "Blog", root_path, method: :get, class: "navbar-brand btn btn-info" %>
+  <%= button_to "Blog", root_path, method: :get, class: "navbar-brand btn btn-primary" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegacion" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navegacion">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item <%= 'active' if current_page?(root_path)%>">
-        <%= button_to "Home", root_path, method: :get, class: "btn btn-info" %>
+        <%= button_to "Home", root_path, method: :get, class: "btn btn-primary" %>
       </li>
       <li class="nav-item <%= 'active' if current_page?(articles_path) %>">
-        <%= button_to "Entrys", articles_path, method: :get, class: "btn btn-info" %>
+        <%= button_to "Entrys", articles_path, method: :get, class: "btn btn-primary" %>
       </li>
       <li class="nav-item <%= 'active' if current_page?(about_path) %>">
-        <%= button_to "About", about_path, method: :get, class: "btn btn-info" %>
+        <%= button_to "About", about_path, method: :get, class: "btn btn-primary" %>
       </li>
     </ul>
     <%- if user_signed_in? %>
       <div class="form-inline my-2 my-lg-0">
         <% if current_user.admin? %>
-        <%= button_to 'Users', users_path, method: :get, class: 'btn btn-info' %>
+        <%= button_to 'Users', users_path, method: :get, class: 'btn btn-primary' %>
         <% end %>
-        <%= button_to 'Mi Cuenta', user_path(current_user.id), method: :get, class: 'btn btn-info' %>
-        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-info' %>
+        <%= button_to 'Mi Cuenta', user_path(current_user.id), method: :get, class: 'btn btn-primary' %>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-primary' %>
       </div>
     <%- else %>
       <div class="form-inline my-2 my-lg-0">
-        <%= button_to 'Login', new_user_session_path, method: :get, class: 'btn btn-info' %>
-        <%= button_to 'Registrate', new_user_registration_path, method: :get, class: 'btn btn-info' %>
+        <%= button_to 'Login', new_user_session_path, method: :get, class: 'btn btn-primary' %>
+        <%= button_to 'Registrate', new_user_registration_path, method: :get, class: 'btn btn-primary' %>
       </div>
     <%- end %>
   </div>
