@@ -29,10 +29,14 @@
           <div class="col-md-10 d-flex justify-content-between">
             <%= comment.body %>
             <% if user_signed_in? && current_user.admin? %>
-              <%= link_to raw('<i class="fas fa-trash-alt"></i>'), comment_path(comment.id),  confirm: "Are you sure?", method: :delete, class: "btn btn-primary" %>
+              <%= link_to raw('<i class="fas fa-trash-alt"></i>'), comment_path(comment.id),  data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-primary" %>
             <% end %>
           </div>
         </div>
+        <% if user_signed_in?&&current_user.id == comment.user_id %>
+          <%= link_to "Edit", edit_comment_path(comment), class: 'btn btn-primary' %>
+          <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+        <% end %>
       </div>
     <% end %>
   </div>
@@ -41,6 +45,11 @@
     <%= render template:'comments/new' %>
   </div>
 
-  <%= link_to 'Edit', edit_article_path(@article) %> |
-  <%= link_to 'Back', articles_path %>
+  <div class="container-fluid mb-3">
+    <h2>Admin options</h2>
+    <div class="">
+      <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-primary' %>
+      <%= link_to 'Back', articles_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
 </div>

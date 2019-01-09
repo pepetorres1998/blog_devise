@@ -20,10 +20,12 @@
 </div>
 <div class="container-fluid">
   <h2 class="text-center mt-3">Hot news</h2>
+  <hr class="hr-big"/>
   <div class="row">
     <% @other.each do |article| %>
     <% if !article.nil? %>
     <div class="col-md-4">
+      <p class=" text-center py-2"><%= article.category.name %></p>
       <hr class="hr-big"/>
       <%= link_to article_path(article.id), class: 'linkto_articles' do %>
       <div class="container-fluid text-justify">

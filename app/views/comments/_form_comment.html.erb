@@ -11,22 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_field :body %>
+  <div class="form-group">
+    <%= form.text_area :body, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.number_field :user_id %>
+    <%= form.number_field :user_id, 'value': current_user.id, type: 'hidden' %>
   </div>
 
   <div class="field">
-    <%= form.label :article_id %>
-    <%= form.number_field :article_id %>
+    <%= form.number_field :article_id, type: 'hidden' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions form-group">
+    <%= form.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

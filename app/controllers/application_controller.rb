@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def require_user
     unless user_signed_in?
-      flash[:alert] = "You must be logged in to an admin account to access this section"
+      flash[:alert] = "You must be logged in to access this section"
       redirect_to new_user_session_path # halts request cycle
     end
   end

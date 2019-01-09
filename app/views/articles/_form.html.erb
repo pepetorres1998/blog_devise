@@ -11,24 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :subtitle %>
-    <%= form.text_field :subtitle %>
+    <%= form.text_field :subtitle, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= form.label :category_id %>
-    <%= form.collection_select(:category_id, Category.all, :id, :name) %>
+    <%= form.collection_select(:category_id, Category.all, :id, :name, {include_blank: false}, {class: 'form-control'}) %>
   </div>
 
-  <div class="field">
-    <%= form.label :picture %>
-    <%= form.file_field :picture %>
+  <div class="field custom-file">
+    <%= form.label :picture, class: 'custom-file-label' %>
+    <%= form.file_field :picture, class: 'custom-file-input' %>
   </div>
 
   <div class="field">
