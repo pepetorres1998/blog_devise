@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2019_01_07_204219) do
     t.string "last_name"
     t.string "username"
     t.string "phone"
-    t.boolean "admin"
-    t.boolean "creator"
+    t.boolean "admin", default: false
+    t.boolean "creator", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "confirmation_token"

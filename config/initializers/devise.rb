@@ -28,7 +28,7 @@ Devise.setup do |config|
       :domain               => "gmail.com",
       :user_name            => ENV["MAILER_EMAIL"],
       :password             => ENV["MAILER_PASSWORD"],
-      :authentication       => "plain",
+      :authentication       => "login",
       :enable_starttls_auto => true
     }
 

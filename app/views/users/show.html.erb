@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <h1 class="text-center"><strong><i><%= @user.username %></i></strong></h1>
-  <p>
+  <h5>
     First name: <%= @user.first_name %>
-  </p>
-  <p>
+  </h5>
+  <h5>
     Last name: <%= @user.last_name %>
-  </p>
-  <% if user_signed_in? && current_user.admin? %>
+  </h5>
+  <% if user_signed_in? && (current_user.admin?||current_user.id == @user.id) %>
     <p>
       Phone: <%= @user.phone %>
     </p>
@@ -19,7 +19,7 @@
     <p>
       Content creator: <%= @user.creator %>
     </p>
-    <%= link_to raw('<i class="fas fa-trash-alt"></i>'), user_path(@user.id), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-primary" %>
+    <%= link_to "Edit", edit_user_registration_path(@user), class: 'btn btn-primary' %>
   <% end %>
 </div>
 <div class="container-fluid my-3">
