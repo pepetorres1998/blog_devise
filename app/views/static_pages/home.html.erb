@@ -1,4 +1,40 @@
 <div class="container-fluid">
-  <h1>StaticPages#home</h1>
-  <p>Find me in app/views/static_pages/home.html.erb</p>
+  <h1 class="text-center my-3">Last Articles</h1>
+  <% @articles.each do |article| %>
+  <hr class="hr-big"/>
+  <%= link_to article_path(article.id), class: 'linkto_articles' do %>
+  <div class="container-fluid my-3 py-3 text-justify">
+    <div class="row">
+      <div class="col-md-4 d-flex flex-column justify-content-center">
+        <%= image_tag article.picture.url, class: "img-fluid" if article.picture? %>
+      </div>
+      <div class="col-md-8">
+        <h3><%= article.title %></h3>
+        <h4><%= article.subtitle %></h4>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  <hr class="hr-big"/>
+</div>
+<div class="container-fluid">
+  <h2 class="text-center mt-3">Hot news</h2>
+  <div class="row">
+    <% @other.each do |article| %>
+    <% if !article.nil? %>
+    <div class="col-md-4">
+      <hr class="hr-big"/>
+      <%= link_to article_path(article.id), class: 'linkto_articles' do %>
+      <div class="container-fluid text-justify">
+          <%= image_tag article.picture.url, class: "img-fluid" if article.picture? %>
+          <p><%= article.title %></p>
+          <p class="text-right py-2"><%= article.category.name %></p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+    <% end %>
+    <hr class="hr-big"/>
+  </div>
 </div>
