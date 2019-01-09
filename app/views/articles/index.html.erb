@@ -1,4 +1,4 @@
-<% if user_signed_in? && current_user.admin? %>
+<% if user_signed_in? && (current_user.admin?||current_user.creator?) %>
   <%= link_to 'New Article', new_article_path %>
 <% end %>
 <div class="container-fluid">

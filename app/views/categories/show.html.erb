@@ -1,3 +1,6 @@
+<% if user_signed_in? && (current_user.admin?||current_user.creator?) %>
+  <%= link_to 'New Article', new_article_path %>
+<% end %>
 <div class="container-fluid">
   <h1 class="text-center"><strong><i><%= @category.name %></i></strong></h1>
   <% @category.articles.each do |article| %>
