@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :comments
+  resources :comments, only: [:edit, :update, :destroy, :index, :create]
   devise_for :users
   resources :users, only: [:show, :index, :destroy]
   root 'static_pages#home'
